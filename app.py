@@ -149,7 +149,7 @@ else:
                     use_container_width=True
                 )
                 st.markdown("""
-                ### The Delta, Yongsan
+                ### 데이터센터in용산
                 Graduation Project · 2026  
                 Data Center + Public Architecture
                 """)
@@ -163,7 +163,7 @@ else:
                     use_container_width=True
                 )
                 st.markdown("""
-                ### Hybrid Timber System
+                ### 24시간
                 Architecture Studio · 2025  
                 Hybrid Timber Structure
                 """)
@@ -198,9 +198,9 @@ else:
 
             여기에 프로젝트 설명 작성
 
-            - Site
-            - Program
-            - Concept
+            - Site 용산
+            - Program 데이터센터
+            - Concept 도심형 데이터센터
             - Strategy
             """)
 
