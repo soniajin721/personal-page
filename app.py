@@ -119,7 +119,7 @@ else:
             st.title("About Me")
 
             st.image(
-                "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
+                "images/증명사진.jpg",
                 width=300
             )
 
@@ -134,7 +134,8 @@ else:
             - Data Center  
             - Public Space  
 
-            이곳에 자기소개를 자유롭게 작성하면 됩니다.
+            명지대에서 건축을 전공하고 있습니다. 
+            다양한 분야에 관심이 많습니다.
             """)
 
         elif st.session_state.page == "projects":
@@ -145,7 +146,7 @@ else:
 
             with col1:
                 st.image(
-                    "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab",
+                    "images/데이터센터.png",
                     use_container_width=True
                 )
                 st.markdown("""
