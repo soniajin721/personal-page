@@ -22,7 +22,7 @@ def go(page):
 if st.session_state.page == "cover":
 
     st.image(
-        "https://images.unsplash.com/photo-1511818966892-d7d671e672a2",
+        "images/main.jpg",
         use_container_width=True
     )
 
