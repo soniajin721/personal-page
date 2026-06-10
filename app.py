@@ -10,8 +10,11 @@ st.set_page_config(
 # ---------------------------
 
 if "page" not in st.session_state:
-    st.session_state.page = "cover"
+    query_params = st.query_params
 
+if query_params.get("page") == "cover":
+    st.session_state.page = "cover"
+    
 def go(page):
     st.session_state.page = page
 
