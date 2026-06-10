@@ -59,13 +59,30 @@ else:
 
     with menu:
 
-        if st.button(
-    "MOON\nJUNGHO",
-    use_container_width=True,
-    type="secondary"
-):
-    go("cover")
-    st.rerun()
+       st.markdown(
+    """
+    <style>
+    .home-link {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .home-link:hover {
+        color: #666666;
+    }
+    </style>
+
+    <a href="?page=cover" target="_self" class="home-link">
+        <h1 style="
+            line-height:1.0;
+            margin-bottom:20px;
+        ">
+            MOON<br>JUNGHO
+        </h1>
+    </a>
+    """,
+    unsafe_allow_html=True
+)
 
         st.divider()
 
