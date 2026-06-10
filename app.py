@@ -5,18 +5,52 @@ st.set_page_config(
     layout="wide"
 )
 
-# ---------------------------
-# 페이지 상태 관리
-# ---------------------------
-
 if "page" not in st.session_state:
-    query_params = st.query_params
-
-if query_params.get("page") == "cover":
     st.session_state.page = "cover"
-    
+
 def go(page):
     st.session_state.page = page
+
+# 전체 디자인 CSS
+st.markdown("""
+<style>
+/* 전체 여백 */
+.block-container {
+    padding-top: 2rem;
+}
+
+/* 로고 버튼을 글자처럼 보이게 */
+button[kind="primary"] {
+    background: transparent !important;
+    color: #31333F !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    text-align: left !important;
+    font-size: 52px !important;
+    font-weight: 800 !important;
+    line-height: 1.1 !important;
+}
+
+button[kind="primary"]:hover {
+    color: #777777 !important;
+    background: transparent !important;
+}
+
+/* 일반 메뉴 버튼 */
+button[kind="secondary"] {
+    border-radius: 0px !important;
+    border: 1px solid #dddddd !important;
+    background: white !important;
+    color: #222222 !important;
+}
+
+button[kind="secondary"]:hover {
+    border: 1px solid #222222 !important;
+    color: #000000 !important;
+}
+</style>
+""", unsafe_allow_html=True)
 
 # ---------------------------
 # COVER PAGE
@@ -25,14 +59,14 @@ def go(page):
 if st.session_state.page == "cover":
 
     st.image(
-        "images/main.jpg",
+        "https://images.unsplash.com/photo-1511818966892-d7d671e672a2",
         use_container_width=True
     )
 
     st.markdown(
         """
         <div style="text-align:center; padding-top:20px;">
-            <h1>MOON JUNGHO</h1>
+            <h1 style="font-size:54px;">MOON JUNGHO</h1>
             <h3>Architecture Portfolio</h3>
         </div>
         """,
@@ -41,10 +75,10 @@ if st.session_state.page == "cover":
 
     st.write("")
 
-    c1, c2, c3 = st.columns([3,1,3])
+    c1, c2, c3 = st.columns([3, 1, 3])
 
     with c2:
-        if st.button("ENTER", use_container_width=True):
+        if st.button("ENTER", use_container_width=True, type="secondary"):
             go("about")
             st.rerun()
 
@@ -56,58 +90,29 @@ else:
 
     menu, content = st.columns([1, 2])
 
-    # -----------------------
     # LEFT MENU
-    # -----------------------
-
     with menu:
 
-       st.markdown(
-    """
-    <style>
-    .home-link {
-        text-decoration: none;
-        color: inherit;
-    }
-
-    .home-link:hover {
-        color: #666666;
-    }
-    </style>
-
-    <a href="?page=cover" target="_self" class="home-link">
-        <h1 style="
-            line-height:1.0;
-            margin-bottom:20px;
-        ">
-            MOON<br>JUNGHO
-        </h1>
-    </a>
-    """,
-    unsafe_allow_html=True
-)
+        if st.button("MOON\nJUNGHO", type="primary"):
+            go("cover")
+            st.rerun()
 
         st.divider()
 
-        if st.button("개인정보", use_container_width=True):
+        if st.button("개인정보", use_container_width=True, type="secondary"):
             go("about")
             st.rerun()
 
-        if st.button("프로젝트", use_container_width=True):
+        if st.button("프로젝트", use_container_width=True, type="secondary"):
             go("projects")
             st.rerun()
 
-        if st.button("컨택", use_container_width=True):
+        if st.button("컨택", use_container_width=True, type="secondary"):
             go("contact")
             st.rerun()
 
-    # -----------------------
     # RIGHT CONTENT
-    # -----------------------
-
     with content:
-
-        # ABOUT
 
         if st.session_state.page == "about":
 
@@ -123,95 +128,48 @@ else:
 
             명지대학교 건축학과
 
-            관심 분야
-            - Architecture
-            - Urban Design
-            - Data Center
-            - Public Space
+            관심 분야  
+            - Architecture  
+            - Urban Design  
+            - Data Center  
+            - Public Space  
 
             이곳에 자기소개를 자유롭게 작성하면 됩니다.
             """)
-
-        # PROJECTS
 
         elif st.session_state.page == "projects":
 
             st.title("Projects")
 
-            st.markdown("""
-            <style>
-            .project-title{
-                font-size:22px;
-                font-weight:700;
-                margin-top:10px;
-            }
-
-            .project-info{
-                color:#777777;
-                font-size:14px;
-            }
-            </style>
-            """, unsafe_allow_html=True)
-
             col1, col2 = st.columns(2)
 
-            # 프로젝트 1
-
             with col1:
-
                 st.image(
                     "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab",
                     use_container_width=True
                 )
-
-                st.markdown(
-                    """
-                    <div class="project-title">
-                    The Delta, Yongsan
-                    </div>
-
-                    <div class="project-info">
-                    Graduation Project · 2026
-                    </div>
-
-                    Data Center + Public Architecture
-                    """,
-                    unsafe_allow_html=True
-                )
-
-                if st.button("View Project 1"):
+                st.markdown("""
+                ### The Delta, Yongsan
+                Graduation Project · 2026  
+                Data Center + Public Architecture
+                """)
+                if st.button("View Project 1", type="secondary"):
                     go("project_delta")
                     st.rerun()
 
-            # 프로젝트 2
-
             with col2:
-
                 st.image(
                     "https://images.unsplash.com/photo-1494526585095-c41746248156",
                     use_container_width=True
                 )
-
-                st.markdown(
-                    """
-                    <div class="project-title">
-                    Hybrid Timber System
-                    </div>
-
-                    <div class="project-info">
-                    Architecture Studio · 2025
-                    </div>
-
-                    Hybrid Timber Structure
-                    """,
-                    unsafe_allow_html=True
-                )
-
-                if st.button("View Project 2"):
+                st.markdown("""
+                ### Hybrid Timber System
+                Architecture Studio · 2025  
+                Hybrid Timber Structure
+                """)
+                if st.button("View Project 2", type="secondary"):
                     go("project_timber")
                     st.rerun()
-
-        # CONTACT
 
         elif st.session_state.page == "contact":
 
@@ -225,8 +183,6 @@ else:
 
             st.write("### LinkedIn")
             st.write("your_linkedin")
-
-        # PROJECT DETAIL 1
 
         elif st.session_state.page == "project_delta":
 
@@ -248,11 +204,9 @@ else:
             - Strategy
             """)
 
-            if st.button("← Back to Projects"):
+            if st.button("← Back to Projects", type="secondary"):
                 go("projects")
                 st.rerun()
-
-        # PROJECT DETAIL 2
 
         elif st.session_state.page == "project_timber":
 
@@ -269,6 +223,6 @@ else:
             여기에 프로젝트 설명 작성
             """)
 
-            if st.button("← Back to Projects"):
+            if st.button("← Back to Projects", type="secondary"):
                 go("projects")
                 st.rerun()
