@@ -155,7 +155,7 @@ else:
                 Data Center + Public Architecture
                 """)
                 if st.button("View Project 1", type="secondary"):
-                    go("project_delta")
+                    go("데이터센터in용산")
                     st.rerun()
 
             with col2:
@@ -185,12 +185,12 @@ else:
             st.write("### LinkedIn")
             st.write("your_linkedin")
 
-        elif st.session_state.page == "project_delta":
+        elif st.session_state.page == "데이터센터in용산":
 
-            st.title("The Delta, Yongsan")
+            st.title("데이터센터in용산")
 
             st.image(
-                "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab",
+                "images/데이터센터.png",
                 use_container_width=True
             )
 
