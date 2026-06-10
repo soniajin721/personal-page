@@ -59,12 +59,13 @@ else:
 
     with menu:
 
-        st.markdown(
-            """
-            # MOON  
-            # JUNGHO
-            """
-        )
+        if st.button(
+    "MOON\nJUNGHO",
+    use_container_width=True,
+    type="secondary"
+):
+    go("cover")
+    st.rerun()
 
         st.divider()
 
