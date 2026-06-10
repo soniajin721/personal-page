@@ -110,6 +110,11 @@ else:
         if st.button("컨택", use_container_width=True, type="secondary"):
             go("contact")
             st.rerun()
+            
+        if st.button("소개", use_container_width=True, type="secondary"):
+            go("contact")
+            st.rerun()
+
 
     # RIGHT CONTENT
     with content:
